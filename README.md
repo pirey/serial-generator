@@ -17,7 +17,7 @@ composer require pirey/code-generator
 
 ## Usage
 
-```
+```php
 <?php
 
 require_once "./vendor/autoload.php";
