@@ -11,7 +11,7 @@ e.g. INV000023, PRD0000032
 
 ## Usage
 
-```
+```php
 <?php
 
 require_once "./vendor/autoload.php";
