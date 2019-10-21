@@ -11,4 +11,11 @@ e.g. INV000023, PRD0000032
 
 ## Usage
 
-TODO
+```
+<?php
+
+require_once "./vendor/autoload.php";
+
+echo CodeGenerator\Generator::first('INV') . PHP_EOL;
+echo CodeGenerator\Generator::next('INV000002', 'INV') . PHP_EOL;
+```
