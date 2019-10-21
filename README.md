@@ -9,6 +9,12 @@ format of the code is
 e.g. INV000023, PRD0000032
 ```
 
+## Installation
+
+```
+composer require pirey/code-generator
+```
+
 ## Usage
 
 ```
@@ -18,4 +24,8 @@ require_once "./vendor/autoload.php";
 
 echo CodeGenerator\Generator::first('INV') . PHP_EOL;
 echo CodeGenerator\Generator::next('INV000002', 'INV') . PHP_EOL;
+
+// override length
+echo CodeGenerator\Generator::first('PRD', 20) . PHP_EOL;
+echo CodeGenerator\Generator::next('INV000002', 'INV', 30) . PHP_EOL;
 ```
