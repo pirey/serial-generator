@@ -1,0 +1,18 @@
+{
+    "name": "pirey/code-generator",
+    "description": "Generate code with prefix, usefull for serial id replacement",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yeri",
+            "email": "arifyeripratama@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "CodeGenerator\\": "src/CodeGenerator/"
+      }
+    }
+}
