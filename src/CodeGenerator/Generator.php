@@ -30,6 +30,15 @@ class Generator
     }
 
     /**
+     * Alias for firstCode
+     *
+     */
+    public static function first($prefix, $len = 10)
+    {
+        return static::firstCode($prefix, $len);
+    }
+
+    /**
      * Calculate model's next code based on the current code
      *
      * e.g. if current code is INV00001
@@ -48,5 +57,14 @@ class Generator
         $nextCodeStr = $prefix . str_pad($nextCode, $len - $prefixLen, '0', STR_PAD_LEFT);
 
         return $nextCodeStr;
+    }
+
+    /**
+     * Alias for nextCode
+     *
+     */
+    public static function next($currentCode, $prefix, $overrideLen = null)
+    {
+        return static::nextCode($currentCode, $prefix, $overrideLen);
     }
 }
