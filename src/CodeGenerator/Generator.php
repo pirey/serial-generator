@@ -15,6 +15,16 @@ namespace CodeGenerator;
 class Generator
 {
     /**
+     * Generate formatted code for $code
+     *
+     */
+    public static function make($code, $prefix, $len = 10)
+    {
+        $prefixLen = strlen($prefix);
+        return $prefix . str_pad($code, $len - $prefixLen, '0', STR_PAD_LEFT);
+    }
+
+    /**
      * Get first code entry
      *
      * the format is
@@ -23,19 +33,19 @@ class Generator
      * e.g INV000000
      *
      */
-    public static function firstCode($prefix, $len = 10)
+    public static function first($prefix, $len = 10)
     {
         $prefixLen = strlen($prefix);
         return $prefix . str_pad('', $len - $prefixLen, '0', STR_PAD_LEFT);
     }
 
     /**
-     * Alias for firstCode
+     * Alias for first
      *
      */
-    public static function first($prefix, $len = 10)
+    public static function initial($prefix, $len = 10)
     {
-        return static::firstCode($prefix, $len);
+        return static::first($prefix, $len);
     }
 
     /**
@@ -44,7 +54,7 @@ class Generator
      * e.g. if current code is INV00001
      * then the next code generated is INV00002
      */
-    public static function nextCode($currentCode, $prefix, $overrideLen = null)
+    public static function next($currentCode, $prefix, $overrideLen = null)
     {
         $len = $overrideLen ? $overrideLen : strlen($currentCode);
         $prefixLen = strlen($prefix);
@@ -57,14 +67,5 @@ class Generator
         $nextCodeStr = $prefix . str_pad($nextCode, $len - $prefixLen, '0', STR_PAD_LEFT);
 
         return $nextCodeStr;
-    }
-
-    /**
-     * Alias for nextCode
-     *
-     */
-    public static function next($currentCode, $prefix, $overrideLen = null)
-    {
-        return static::nextCode($currentCode, $prefix, $overrideLen);
     }
 }
