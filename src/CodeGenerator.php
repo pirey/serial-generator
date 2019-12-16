@@ -1,5 +1,6 @@
 <?php
-namespace CodeGenerator;
+
+namespace Pirey;
 
 /**
  * Helper for generating model's code
@@ -12,7 +13,7 @@ namespace CodeGenerator;
  * this helper handles code generation
  *
  */
-class Generator
+class CodeGenerator
 {
     /**
      * Generate formatted code for $code
@@ -57,14 +58,21 @@ class Generator
     public static function next($currentCode, $prefix, $overrideLen = null)
     {
         $len = $overrideLen ? $overrideLen : strlen($currentCode);
-        $prefixLen = strlen($prefix);
 
         // get last code number, e.g. INV0003, get the number '3'
         $splitted = explode($prefix, $currentCode);
-        $lastCode = ltrim(array_pop($splitted), '0');
+        $lastCode_ = ltrim(array_pop($splitted), '0');
+        $lastCode = strlen($lastCode_) <= 0 ? 0 : $lastCode_;
+
+        if (!is_numeric($lastCode)) {
+            // here, $currentCode is using custom format
+            throw new \InvalidArgumentException("Cannot calculate next code from $currentCode");
+        }
+
         $nextCode = $lastCode ? $lastCode + 1 : 1;
 
-        $nextCodeStr = $prefix . str_pad($nextCode, $len - $prefixLen, '0', STR_PAD_LEFT);
+        // $nextCodeStr = $prefix . str_pad($nextCode, $len - $prefixLen, '0', STR_PAD_LEFT);
+        $nextCodeStr = static::make($nextCode, $prefix, $len);
 
         return $nextCodeStr;
     }

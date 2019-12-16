@@ -22,10 +22,13 @@ composer require pirey/code-generator
 
 require_once "./vendor/autoload.php";
 
-echo CodeGenerator\Generator::first('INV') . PHP_EOL;
-echo CodeGenerator\Generator::next('INV000002', 'INV') . PHP_EOL;
+echo Pirey\CodeGenerator::first('INV') . PHP_EOL;
+echo Pirey\CodeGenerator::next('INV000002', 'INV') . PHP_EOL;
 
 // override length
-echo CodeGenerator\Generator::first('PRD', 20) . PHP_EOL;
-echo CodeGenerator\Generator::next('INV000002', 'INV', 30) . PHP_EOL;
+echo Pirey\CodeGenerator::first('PRD', 20) . PHP_EOL;
+echo Pirey\CodeGenerator::next('INV000002', 'INV', 30) . PHP_EOL;
+
+// throws InvalidArgumentException when given custom code
+echo Pirey\CodeGenerator::next('xf86000ABC', 'INV') . PHP_EOL;
 ```
