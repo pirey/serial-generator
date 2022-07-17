@@ -1,6 +1,6 @@
 {
-    "name": "pirey/code-generator",
-    "description": "Generate code with prefix, usefull for serial id replacement",
+    "name": "pirey/serial-generator",
+    "description": "Generate serial identifier with prefix",
     "type": "library",
     "license": "MIT",
     "authors": [

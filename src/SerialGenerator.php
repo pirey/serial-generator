@@ -13,7 +13,7 @@ namespace Pirey;
  * this helper handles code generation
  *
  */
-class CodeGenerator
+class SerialGenerator
 {
     /**
      * Generate formatted code for $code
