@@ -75,6 +75,17 @@ final class SerialGeneratorTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
+    public function testNextWithDifferentLen()
+    {
+        $expected = 'INV00001';
+        $actual = SerialGenerator::next('INV000', 'INV', 8);
+        $this->assertEquals($expected, $actual);
+
+        $expected = 'INV01';
+        $actual = SerialGenerator::next('INV0000000', 'INV', 5);
+        $this->assertEquals($expected, $actual);
+    }
+
     public function testNextWithCustomCode()
     {
         $this->expectException(InvalidArgumentException::class);
